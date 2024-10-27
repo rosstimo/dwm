@@ -2566,8 +2566,8 @@ updatestatus(void)
 		strcpy(stext, "dwm-"VERSION);
 	else
 		copyvalidchars(stext, rawstext);
-	drawbar(selmon);
-	updatesystray();
+	  drawbar(selmon);
+	  updatesystray();
 }
 
 
