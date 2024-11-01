@@ -106,6 +106,8 @@ static const Layout layouts[] = {
 **/
 
 #define MODKEY Mod4Mask
+#define AltMask Mod1Mask
+
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -130,25 +132,25 @@ static const char *termcmd[]  = { TERMINAL, NULL };
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-		{ "color0",		STRING,	&normbordercolor },
-		{ "color8",		STRING,	&selbordercolor },
-		{ "color0",		STRING,	&normbgcolor },
-		{ "color4",		STRING,	&normfgcolor },
-		{ "color0",		STRING,	&selfgcolor },
-		{ "color4",		STRING,	&selbgcolor },
-		{ "borderpx",		INTEGER, &borderpx },
-		{ "snap",		INTEGER, &snap },
-		{ "showbar",		INTEGER, &showbar },
-		{ "topbar",		INTEGER, &topbar },
-		{ "nmaster",		INTEGER, &nmaster },
-		{ "resizehints",	INTEGER, &resizehints },
-		{ "mfact",		FLOAT,	&mfact },
-		{ "gappih",		INTEGER, &gappih },
-		{ "gappiv",		INTEGER, &gappiv },
-		{ "gappoh",		INTEGER, &gappoh },
-		{ "gappov",		INTEGER, &gappov },
-		{ "swallowfloating",	INTEGER, &swallowfloating },
-		{ "smartgaps",		INTEGER, &smartgaps },
+  { "color0",		STRING,	&normbordercolor },
+  { "color8",		STRING,	&selbordercolor },
+  { "color0",		STRING,	&normbgcolor },
+  { "color4",		STRING,	&normfgcolor },
+  { "color0",		STRING,	&selfgcolor },
+  { "color4",		STRING,	&selbgcolor },
+  { "borderpx",		INTEGER, &borderpx },
+  { "snap",		INTEGER, &snap },
+  { "showbar",		INTEGER, &showbar },
+  { "topbar",		INTEGER, &topbar },
+  { "nmaster",		INTEGER, &nmaster },
+  { "resizehints",	INTEGER, &resizehints },
+  { "mfact",		FLOAT,	&mfact },
+  { "gappih",		INTEGER, &gappih },
+  { "gappiv",		INTEGER, &gappiv },
+  { "gappoh",		INTEGER, &gappoh },
+  { "gappov",		INTEGER, &gappov },
+  { "swallowfloating",	INTEGER, &swallowfloating },
+  { "smartgaps",		INTEGER, &smartgaps },
 };
 
 #include <X11/XF86keysym.h>
@@ -212,7 +214,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_a,          defaultgaps,            {0} },
 	{ MODKEY,			XK_s,          togglesticky,           {0} },
 	/* { MODKEY|ShiftMask,		XK_s,          spawn,                  SHCMD("") }, */
-	{ MODKEY,			XK_d,          spawn,                  {.v = (const char*[]){ "dmenu_run", NULL } } },
+	/* { MODKEY,			XK_d,          spawn,                  {.v = (const char*[]){ "dmenu_run", NULL } } },*/
+	{ AltMask,			XK_space,          spawn,                  {.v = (const char*[]){ "dmenu_run", NULL } } },
 	{ MODKEY|ShiftMask,		XK_d,          spawn,                  {.v = (const char*[]){ "passmenu", NULL } } },
 	{ MODKEY,			XK_f,          togglefullscr,          {0} },
 	{ MODKEY|ShiftMask,		XK_f,          setlayout,              {.v = &layouts[8]} },
