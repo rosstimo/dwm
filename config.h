@@ -34,12 +34,16 @@ static char *colors[][3] = {
   [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
 };
 
+/* scratchpads */
 typedef struct {
   const char *name;
   const void *cmd;
 } Sp;
+
 const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL };
+
 const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
+
 static Sp scratchpads[] = {
   /* name          cmd  */
   {"spterm",      spcmd1},
@@ -49,6 +53,7 @@ static Sp scratchpads[] = {
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
+/* window rules */
 static const Rule rules[] = {
   /* xprop(1):
    *	WM_CLASS(STRING) = instance, class
@@ -134,15 +139,7 @@ static const char *termcmd[]  = { TERMINAL, NULL };
  */
 ResourcePref resources[] = {
   { "color0",		STRING,	&normbordercolor },
-  { "color8",		STRING,	&selbordercolor },
-  { "color0",		STRING,	&normbgcolor },
-  { "color4",		STRING,	&normfgcolor },
-  { "color0",		STRING,	&selfgcolor },
-  { "color4",		STRING,	&selbgcolor },
-  { "borderpx",		INTEGER, &borderpx },
-  { "snap",		INTEGER, &snap },
-  { "showbar",		INTEGER, &showbar },
-  { "topbar",		INTEGER, &topbar },
+  { "color8",		STRING,	&selbordercolor }
   { "nmaster",		INTEGER, &nmaster },
   { "resizehints",	INTEGER, &resizehints },
   { "mfact",		FLOAT,	&mfact },
