@@ -1,4 +1,4 @@
-.gitignore
+*~
 *.orig
 *.rej
 larbs.pdf
@@ -7,3 +7,4 @@ util.o
 dwm
 dwm.o
 drw.o
+
