@@ -35,15 +35,15 @@ static char *colors[][3] = {
 };
 
 typedef struct {
-	const char *name;
-	const void *cmd;
+  const char *name;
+  const void *cmd;
 } Sp;
 const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
 static Sp scratchpads[] = {
-	/* name          cmd  */
-	{"spterm",      spcmd1},
-	{"spcalc",      spcmd2},
+  /* name          cmd  */
+  {"spterm",      spcmd1},
+  {"spcalc",      spcmd2},
 };
 
 /* tagging */
@@ -90,6 +90,21 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
+
+/* run: `xmodmap -pm` to see current system modifier/mask mappings*/
+/** Example output: 
+* xmodmap -pm
+* xmodmap:  up to 4 keys per modifier, (keycodes in parentheses):
+* shift       Shift_L (0x32),  Shift_R (0x3e)
+* lock        Caps_Lock (0x42)
+* control     Control_L (0x25),  Control_R (0x69)
+* mod1        Alt_L (0x40),  Alt_R (0x6c),  Alt_L (0xcc),  Meta_L (0xcd)
+* mod2        Num_Lock (0x4d)
+* mod3        ISO_Level5_Shift (0xcb)
+* mod4        Super_L (0x85),  Super_R (0x86),  Super_L (0xce),  Hyper_L (0xcf)
+* mod5        ISO_Level3_Shift (0x5c)
+**/
+
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
